@@ -36,14 +36,18 @@ const container = {
   },
 }
 
+
 const item = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
+    transition: {
+      duration: 0.6,
+    },
   },
-}
+};
+
 
 export default function Store() {
   return (
