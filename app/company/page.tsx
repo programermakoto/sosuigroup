@@ -16,7 +16,7 @@ export default function Company() {
       <div className="max-w-6xl mx-auto px-4">
 
         {/* ===== HERO ===== */}
-        <section className="h-screen flex flex-col justify-center items-center text-center">
+        <section className="h-screen flex flex-col justify-center items-center text-center mt-10 md:mt-0">
           <motion.div
             initial="hidden"
             animate="visible"
