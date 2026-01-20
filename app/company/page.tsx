@@ -49,7 +49,7 @@ export default function Company() {
             transition={{ repeat: Infinity, duration: 1.5 }}
             className="mt-16"
           >
-            <Image src="/assets/scroll.gif" alt="scroll" width={60} height={100} />
+            <Image src="/assets/scroll.gif" alt="scroll" width={200} height={200} />
           </motion.div>
         </section>
 
