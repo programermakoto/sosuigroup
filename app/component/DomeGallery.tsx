@@ -35,19 +35,11 @@ type ItemDef = {
 
 const DEFAULT_IMAGES: ImageItem[] = [
   {
-    src: '/assets/member06.webp',
+    src: '/assets/member11.webp',
     alt: ''
   },
   {
-    src: '/assets/member05.webp',
-    alt: ''
-  },
-  {
-    src: '/assets/member02.webp',
-    alt: ' art'
-  },
-  {
-    src: '/assets/member04.webp',
+    src: '/assets/member09.webp',
     alt: ''
   },
   {
@@ -55,15 +47,23 @@ const DEFAULT_IMAGES: ImageItem[] = [
     alt: ''
   },
   {
-    src: '/assets/member01.webp',
+    src: '/assets/member04.webp',
     alt: ''
   },
   {
-    src: '/assets/member08.webp',
+    src: '/assets/member09.webp',
     alt: ''
   },
   {
-    src: '/assets/member07.webp',
+    src: '/assets/member10.webp',
+    alt: ''
+  },
+  {
+    src: '/assets/member12.webp',
+    alt: ''
+  },
+  {
+    src: '/assets/member13.webp',
     alt: ''
   },
 ];

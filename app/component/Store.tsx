@@ -10,19 +10,19 @@ const companies = [
     name: 'CLUB gloria',
     description: '洗練された大人のためのラグジュアリーキャバクラ。',
     image: '/assets/store01.webp',
-    link: 'https://www.pokepara.jp/nara/m335/a391/shop6973/',
+    link: 'https://www.tainew.com/kansai/shop/view/v502354/',
   },
   {
     name: 'LOUNGE blanc',
     description: '非日常を演出する、上質なナイトエンターテインメント。',
     image: '/assets/store05.webp',
-    link: 'https://www.pokepara.jp/nara/m335/a391/shop19246/',
+    link: 'https://www.tainew.com/kansai/shop/view/v1000605/?gad_source=1&gad_campaignid=21660648673&gbraid=0AAAAADmU4OBjNLi12oLlM78P99bh1Dw_B',
   },
   {
     name: 'Luxury Bar GOAT',
     description: '非日常を演出する、上質なナイトエンターテインメント。',
     image: '/assets/store09.webp',
-    link: 'https://luxury-goat.live-web.jp/',
+    link: 'https://www.tainew.com/kansai/shop/view/v501057/',
   }
 ]
 
@@ -66,7 +66,7 @@ export default function Store() {
             GROUP COMPANIES
           </h2>
           <p className="text-sm text-gray-400 tracking-widest">
-            グループ会社紹介
+            グループ店舗紹介
           </p>
         </motion.div>
 
@@ -110,7 +110,7 @@ export default function Store() {
                   </p>
 
                   <span className="inline-block text-sm text-white/70 group-hover:text-white transition">
-                    View More →
+                  求人詳細 →
                   </span>
                 </div>
               </Link>

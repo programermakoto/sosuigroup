@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const backgrounds = [
-  '/assets/store06.webp',
+  '/assets/hero01.png',
   '/assets/store03.webp',
   '/assets/store05.webp',
 ]
@@ -48,15 +48,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-center space-y-4"
+          className="text-center space-y-4 "
         >
-          <Image
-            src="/assets/sosui.PNG"
-            alt="sosui"
-            width={80}
-            height={80}
-            className="mx-auto"
-          />
+         
           <h1 className="text-4xl md:text-5xl font-bold text-white tracking-widest">
             SOSUI GROUP
           </h1>
@@ -85,7 +79,7 @@ export default function Hero() {
               href="/company"
               className="bg-white/80 text-black px-7 py-3 rounded-full font-medium backdrop-blur hover:bg-white transition"
             >
-              会社概要
+              キャスト募集
             </Link>
           </motion.div>
 
@@ -98,7 +92,13 @@ export default function Hero() {
             </Link>
           </motion.div>
         </motion.div>
-
+        <Image
+            src="/assets/sosui.PNG"
+            alt="sosui"
+            width={150}
+            height={150}
+            className="mx-auto"
+          />
         {/* スクロール誘導 */}
         <motion.div
           animate={{ y: [0, 12, 0] }}
