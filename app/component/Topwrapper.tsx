@@ -12,7 +12,7 @@ const fadeUp = {
 
 export default function Topwrapper() {
   return (
-    <section className="py-24 space-y-32">
+    <section className="py-24 px-3 space-y-32 ">
 
       {/* ===== SOSUI GROUPとは ===== */}
       <motion.article
