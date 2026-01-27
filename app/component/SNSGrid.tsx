@@ -6,45 +6,26 @@ import React from 'react'
 
 const SNS_ITEMS = [
   {
-    platform: 'Instagram「在籍キャスト紹介」',
-    href: 'https://www.instagram.com/p/DOBCUX4CZ0c/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-    image: '/assets/member01.webp',
+    platform: 'TikTok 新人黒服の野望',
+    href: 'https://www.tiktok.com/@gloria.nara?_r=1&_t=ZS-93JBjdqHFkQ',
+    image: '/assets/m.webp',
   },
   {
-    platform: 'TikTok「新人黒服の野望」',
-    href: 'https://www.tiktok.com/@gloria.nara?_r=1&_t=ZS-932CUKcGSiF',
-    image: '/assets/member01.webp',
+    platform: 'Instagram 松本社長',
+    href: 'https://www.instagram.com/yudai.sousui?igsh=YWE3aTJnYnYzZ2U3&utm_source=qr',
+    image: '/assets/m.webp',
   },
   {
-    platform: 'Instagram「グロリアのキャスト紹介」',
-    href: 'https://www.instagram.com/p/DOBCUX4CZ0c/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-    image: '/assets/member01.webp',
+    platform: 'TikTok グロリア奈良',
+    href: 'https://www.tiktok.com/@gloria.nara2?_r=1&_t=ZS-93JBtqqc70S',
+    image: '/assets/m.webp',
   },
   {
-    platform: 'TikTok「現実ではいない黒服」',
-    href: 'https://www.tiktok.com/@gloria.nara2?_r=1&_t=ZS-932CctkbVLT',
-    image: '/assets/member01.webp',
+    platform: 'Instagram  SOSUI GROUP',
+    href: 'https://www.instagram.com/sosui_group?igsh=MTBkd2djaGFobWpyaw%3D%3D&utm_source=',
+    image: '/assets/m.webp',
   },
-  {
-    platform: 'Instagram「Lounge Blancの1周年」',
-    href: 'https://www.instagram.com/p/DOBCUX4CZ0c/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-    image: '/assets/member01.webp',
-  },
-  {
-    platform: 'TikTok「一度行ってみたくなるキャバクラ」',
-    href: 'https://www.instagram.com/p/DOBCUX4CZ0c/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-    image: '/assets/member01.webp',
-  },
-  {
-    platform: 'Instagram「大和八木駅にある唯一のガールズバーGOAT」',
-    href: 'https://www.instagram.com/p/DOBCUX4CZ0c/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-    image: '/assets/member01.webp',
-  },
-  {
-    platform: 'TikTok「カーテンを開けて言いたいこと」',
-    href: 'https://www.instagram.com/p/DOBCUX4CZ0c/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-    image: '/assets/member01.webp',
-  },
+ 
 ]
 
 export default function SNSGrid() {

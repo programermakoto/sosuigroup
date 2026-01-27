@@ -39,7 +39,7 @@ export default function Topwrapper() {
             src="/assets/store04.webp"
             alt="SOSUI GROUP"
             width={500}
-            height={500}
+            height={300}
             className="rounded-2xl object-cover w-full"
           />
         </motion.div>

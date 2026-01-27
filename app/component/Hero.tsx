@@ -92,13 +92,13 @@ export default function Hero() {
             </Link>
           </motion.div>
         </motion.div>
-        <Image
+        {/* <Image
             src="/assets/sosui.PNG"
             alt="sosui"
             width={150}
             height={150}
             className="mx-auto"
-          />
+          /> */}
         {/* スクロール誘導 */}
         <motion.div
           animate={{ y: [0, 12, 0] }}

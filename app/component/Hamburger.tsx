@@ -14,36 +14,24 @@ export default function HamburgerMenu() {
   }, [pathname]);
 
   const stores = [
-    
     {
       name: "CLUB gloria",
       image: "/assets/store01.webp",
       siteUrl: "/gloria",
-      recruitUrl: "/gloria/recruit",
+      recruitUrl: "https://www.tainew.com/kansai/shop/view/v502354/",
     },
     {
       name: "LOUNGE blanc",
-      image: "/assets/store02.webp",
+      image: "/assets/store05.webp",
       siteUrl: "/blanc",
-      recruitUrl: "/blanc/recruit",
+      recruitUrl:
+        "https://www.tainew.com/kansai/shop/view/v1000605/",
     },
     {
       name: "Luxury Bar GOAT",
-      image: "/assets/store03.webp",
+      image: "/assets/store09.webp",
       siteUrl: "/goat",
-      recruitUrl: "/goat/recruit",
-    },
-    {
-      name: "Luxury Bar GOAT",
-      image: "/assets/store03.webp",
-      siteUrl: "/goat",
-      recruitUrl: "/goat/recruit",
-    },
-    {
-      name: "Luxury Bar GOAT",
-      image: "/assets/store03.webp",
-      siteUrl: "/goat",
-      recruitUrl: "/goat/recruit",
+      recruitUrl: "https://www.tainew.com/kansai/shop/view/v501057/",
     },
   ];
 
@@ -101,34 +89,44 @@ export default function HamburgerMenu() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 mt-6 text-center">
-            <Link href="/company" className="menu-info-btn">会社概要</Link>
-            <Link href="/president" className="menu-info-btn">代表挨拶</Link>
-            <Link href="/privacy" className="menu-info-btn">プライバシーポリシー</Link>
-            <Link href="/company" className="menu-info-btn">特定商取引法</Link>
+            <Link href="/privacy" className="menu-info-btn">
+              プライバシーポリシー
+            </Link>
+            <Link href="/company" className="menu-info-btn">
+              特定商取引法
+            </Link>
           </div>
         </div>
 
         <div className="my-6 border-t mx-6 md:mx-8" />
 
         {/* ===== 店舗一覧 ===== */}
-        <nav className="px-6 md:px-8 h-[calc(100vh-18rem)] overflow-y-auto overflow-x-hidden">
+        <nav className=" px-6 md:px-8 h-[calc(100vh-18rem)]">
           <div className="flex flex-col  gap-8">
             {stores.map((store, i) => (
               <div
                 key={i}
-                className="flex flex-col md:justify-around md:flex-row gap-4 items-center border-b pb-6"
+                className="flex flex-col justify-around md:flex-row gap-4 items-center border-b pb-6"
               >
-                {/* 画像（スマホ安全） */}
-                <div className="relative w-full h-40 md:w-[220px] md:h-[140px]">
+                {/* 画像＋店舗名 */}
+                <div className="relative w-full h-40 md:w-[220px] md:h-[140px] rounded-lg overflow-hidden">
                   <Image
                     src={store.image}
                     alt={store.name}
                     fill
-                    className="object-cover rounded-lg"
+                    className="object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-2 left-2 right-2 text-white text-sm font-semibold tracking-wide">
+                    {store.name}
+                  </div>
                 </div>
 
-                <div className="flex flex-col gap-3 w-full md:w-auto">
+                {/* ボタン */}
+                <div className="flex flex-col gap-2 w-full md:w-auto">
+                  <p className="text-center font-semibold text-sm tracking-wide">
+                    {store.name}
+                  </p>
                   <Link
                     href={store.siteUrl}
                     className="w-full text-center px-6 py-2 border border-black"
