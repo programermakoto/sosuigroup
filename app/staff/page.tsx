@@ -29,7 +29,7 @@ export default function RecruitPage() {
             STAFF <span className="text-gold">RECRUIT</span>
           </h1>
           <p className="text-gray-300 tracking-widest">
-            奈良エリア 夜の一流グループ
+          奈良エリア　地域一番店
           </p>
 
           <motion.div

@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 export default function Topwrapper() {
@@ -9,13 +8,8 @@ export default function Topwrapper() {
     <section className="py-24 px-3 space-y-32">
 
       {/* ===== SOSUI GROUPとは ===== */}
-      <article
-        className="
-          flex flex-col md:flex-row
-          justify-center items-center
-          gap-12
-        "
-      >
+      <article className="flex flex-col md:flex-row justify-center items-center gap-12">
+
         {/* 画像 */}
         <div className="w-full md:w-[30%]">
           <Image
@@ -28,29 +22,39 @@ export default function Topwrapper() {
         </div>
 
         {/* テキスト */}
-        <div className="w-full md:w-[50%] text-center space-y-6 px-4 md:px-0">
+        <div className="w-full md:w-[50%] space-y-6 px-4 md:px-0 text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold tracking-wide border-b pb-3">
             SOSUI GROUPとは？
           </h2>
-          <p className="text-gray-700 leading-relaxed md:px-10">
-            奈良県の奈良市、橿原市を中心にキャバクラ、ラウンジ、ガールズバーを
-            多店舗展開しております。<br /><br />
-            『人の想いに人が集まる会社』をモットーに掲げ、
-            一人一人の活気、活力を一つにまとめ
-            奈良県から全国に出店していくつもりです。<br /><br />
-            常識にとらわれない様々なチャレンジを進めて参ります。
-          </p>
+
+          <div className="space-y-4 text-gray-700 leading-relaxed">
+
+            <div className="bg-gray-50 rounded-xl p-5">
+              奈良県の奈良市・橿原市を中心に、<br />
+              キャバクラ、ラウンジ、ガールズバーを多店舗展開しております。
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-5">
+              <span className="font-semibold text-gray-900">
+                『人の想いに人が集まる会社』
+              </span>
+              をモットーに、<br />
+              一人一人の活気と活力を一つにまとめ、
+              奈良県から全国へ出店していきます。
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-5">
+              常識にとらわれない、
+              新しい価値創造と挑戦を続けて参ります。
+            </div>
+
+          </div>
         </div>
       </article>
 
       {/* ===== 代表挨拶 ===== */}
-      <article
-        className="
-          flex flex-col md:flex-row-reverse
-          justify-center items-center
-          gap-12
-        "
-      >
+      <article className="flex flex-col md:flex-row-reverse justify-center items-center gap-12">
+
         {/* 画像 */}
         <div className="w-full md:w-[30%]">
           <Image
@@ -63,28 +67,42 @@ export default function Topwrapper() {
         </div>
 
         {/* テキスト */}
-        <div className="w-full md:w-[50%] text-center space-y-6 px-4 md:px-0">
+        <div className="w-full md:w-[50%] space-y-6 px-4 md:px-0 text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold tracking-wide border-b pb-3">
             SOSUI GROUP 代表挨拶
           </h2>
-          <p className="text-gray-700 leading-relaxed md:px-10">
-            奈良県の地元の方から出張、観光の方に
-            「選ばれるお店作り」を心掛けています。<br /><br />
 
-            ・お客様に楽しんで頂きたいホスピタリティー<br />
-            ・お客様に喜んで貰えるクオリティー<br />
-            ・日々努力し、改善・向上するバイタリティー<br /><br />
+          <div className="space-y-4 text-gray-700 leading-relaxed">
 
-            お客様にSOSUI GROUPを選んで頂き、
-            沢山の方に満足して頂けるお店づくりの為に
-            努力できるスタッフ（仲間）を募集しています。<br /><br />
+            <div className="bg-gray-50 rounded-xl p-5">
+              地元の方、出張・観光で訪れる方に<br />
+              <span className="font-semibold text-gray-900">
+                「選ばれるお店作り」
+              </span>
+              を心掛けています。
+            </div>
 
-            スタッフ一人一人が仕事に誇りと自信を持ち、
-            仲間と共に成長し、物心両面の豊かさを実現していきます。<br /><br />
+            <div className="bg-gray-50 rounded-xl p-5 space-y-1">
+              <p>・お客様に楽しんで頂くホスピタリティー</p>
+              <p>・お客様に喜んで頂くクオリティー</p>
+              <p>・日々努力し、改善・向上するバイタリティー</p>
+            </div>
 
-            奈良県の水商売に新しい文化と価値を創ることが
-            私たちの使命です。
-          </p>
+            <div className="bg-gray-50 rounded-xl p-5">
+              お客様にSOSUI GROUPを選んで頂き、
+              満足して頂けるお店づくりのために、
+              共に成長できる仲間を募集しています。
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-5">
+              奈良県の水商売に、
+              <span className="font-semibold text-gray-900">
+                新しい文化と価値
+              </span>
+              を創ることが私たちの使命です。
+            </div>
+
+          </div>
         </div>
       </article>
 

@@ -24,22 +24,25 @@ export default function Company() {
             transition={{ duration: 1 }}
             className="space-y-6"
           >
-            <Image src="/assets/sosui.PNG" alt="sosui" width={120} height={120}  className="mx-auto"/>
+            <Image src="/assets/sosui.PNG" alt="sosui" width={120} height={120} className="mx-auto" />
 
             <p className="text-sm tracking-widest text-gray-500">
               ABOUT SOSUI GROUP
             </p>
 
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              夜の価値を、<br />
+              水商売の価値を
+              <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-500">
-                次のステージへ
+                自分達の力で次のステージへ
               </span>
             </h1>
 
             <p className="max-w-2xl mx-auto text-gray-600 leading-relaxed">
-              SOSUI GROUPは、キャバクラ・ラウンジ・バー事業を中心に
-              夜のエンターテインメントをアップデートし続けるグループです。
+              SOSUI GROUPは  <br />
+              キャバクラ、ラウンジ、バー事業を中心に  <br />
+              夜のエンターテインメントを  <br />
+              アップデートし続けるグループです。
             </p>
           </motion.div>
 
@@ -140,15 +143,15 @@ export default function Company() {
         {[{
           title: "会社概要",
           data: [
-            ["会社名", "SOSUI GROUP"],
+            ["会社名", "双水観光株式会社"],
             ["代表者", "松本 侑大"],
             ["事業内容", "キャバクラ・ラウンジ・バー運営"],
-            ["所在地", "大阪府〇〇市〇〇町"],
+            ["所在地", "〒634-0813 奈良県橿原市四条町６４５−１"],
           ]
-        },{
+        }, {
           title: "特定商取引法に基づく表記",
           data: [
-            ["販売事業者", "SOSUI GROUP"],
+            ["販売事業者", "双水観光株式会社"],
             ["運営責任者", "松本 侑大"],
             ["支払方法", "現金・クレジットカード"],
             ["販売価格", "各店舗・サービスページに記載"],
