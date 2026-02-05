@@ -16,8 +16,8 @@ export default function Recruit() {
       </p>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-        <ThreeDButton href="/company" label="スタッフ募集" />
         <ThreeDButton href="/company" label="キャスト募集" />
+        <ThreeDButton href="/staff" label="スタッフ募集" />
       </div>
     </section>
   )

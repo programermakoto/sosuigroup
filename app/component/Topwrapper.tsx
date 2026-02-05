@@ -31,20 +31,21 @@ export default function Topwrapper() {
 
             <div className="bg-gray-50 rounded-xl p-5">
               奈良県の奈良市・橿原市を中心に、<br />
-              キャバクラ、ラウンジ、ガールズバーを多店舗展開しております。
+              キャバクラ、ラウンジ、ガールズバーを<br className="md:hidden" />多店舗展開しております。
             </div>
 
             <div className="bg-gray-50 rounded-xl p-5">
               <span className="font-semibold text-gray-900">
                 『人の想いに人が集まる会社』
               </span>
-              をモットーに、<br />
-              一人一人の活気と活力を一つにまとめ、
+              を<br className="md:hidden" />
+              モットーに、<br />
+              一人一人の活気と活力を一つにまとめ、<br className="md:hidden" />
               奈良県から全国へ出店していきます。
             </div>
 
             <div className="bg-gray-50 rounded-xl p-5">
-              常識にとらわれない、
+              常識にとらわれない、<br className="md:hidden" />
               新しい価値創造と挑戦を続けて参ります。
             </div>
 

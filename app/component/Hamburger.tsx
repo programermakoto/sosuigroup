@@ -23,14 +23,14 @@ export default function HamburgerMenu() {
     {
       name: "LOUNGE blanc",
       image: "/assets/store05.webp",
-      siteUrl: "/blanc",
+      siteUrl: "https://www.pokepara.jp/nara/m335/a391/shop19246/",
       recruitUrl:
         "https://www.tainew.com/kansai/shop/view/v1000605/",
     },
     {
       name: "Luxury Bar GOAT",
       image: "/assets/store09.webp",
-      siteUrl: "/goat",
+      siteUrl: "https://luxury-goat.live-web.jp/",
       recruitUrl: "https://www.tainew.com/kansai/shop/view/v501057/",
     },
   ];
