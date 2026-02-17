@@ -7,8 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const backgrounds = [
   '/assets/hero01.png',
-  '/assets/store03.webp',
-  '/assets/store05.webp',
+  '/assets/hero02.JPG',
+  '/assets/hero03.JPG',
 ]
 
 export default function Hero() {
@@ -76,7 +76,7 @@ export default function Hero() {
         >
           <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="/company"
+              href="/cast"
               className="bg-white/80 text-black px-7 py-3 rounded-full font-medium backdrop-blur hover:bg-white transition"
             >
               キャスト募集
@@ -85,7 +85,7 @@ export default function Hero() {
 
           <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="/staff"
+              href="/boys"
               className="bg-black/70 text-white px-7 py-3 rounded-full font-medium backdrop-blur hover:bg-black transition"
             >
               スタッフ募集
