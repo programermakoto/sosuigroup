@@ -1,31 +1,56 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const backgrounds = [
-  '/assets/hero01.png',
-  '/assets/hero02.JPG',
-  '/assets/hero03.JPG',
+const pcBackgrounds = [
+  '/assets/hero.pc01.png',
+  '/assets/hero.pc02.JPEG',
+  '/assets/hero.pc03.PNG',
+]
+
+const spBackgrounds = [
+  '/assets/hero.sp01.png',
+  '/assets/hero.sp02.png',
+  '/assets/hero.sp03.png',
 ]
 
 export default function Hero() {
-  const [index, setIndex] = useState(0)
 
+  const [index, setIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  /* =========================
+     画面サイズ判定
+  ========================== */
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkScreen()
+    window.addEventListener('resize', checkScreen)
+
+    return () => window.removeEventListener('resize', checkScreen)
+  }, [])
+
+  const backgrounds = isMobile ? spBackgrounds : pcBackgrounds
+
+  /* =========================
+     スライド
+  ========================== */
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % backgrounds.length)
     }, 6000)
     return () => clearInterval(timer)
-  }, [])
+  }, [backgrounds.length])
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
 
-      {/* ===== 背景（フェード＋ズーム） ===== */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <motion.div
           key={backgrounds[index]}
           initial={{ opacity: 0, scale: 1.1 }}
@@ -37,26 +62,21 @@ export default function Hero() {
         />
       </AnimatePresence>
 
-      {/* 黒オーバーレイ */}
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* ===== コンテンツ ===== */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full space-y-8">
 
-        {/* ロゴ */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-center space-y-4 "
+          className="text-center space-y-4"
         >
-         
           <h1 className="text-4xl md:text-5xl font-bold text-white tracking-widest">
             SOSUI GROUP
           </h1>
         </motion.div>
 
-        {/* サブコピー */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +87,6 @@ export default function Hero() {
           ラグジュアリーの経験を
         </motion.p>
 
-        {/* ボタン */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,14 +111,7 @@ export default function Hero() {
             </Link>
           </motion.div>
         </motion.div>
-        {/* <Image
-            src="/assets/sosui.PNG"
-            alt="sosui"
-            width={150}
-            height={150}
-            className="mx-auto"
-          /> */}
-        {/* スクロール誘導 */}
+
         <motion.div
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 2, repeat: Infinity }}

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function HamburgerMenu() {
   const [open, setOpen] = useState(false);
@@ -35,12 +36,26 @@ export default function HamburgerMenu() {
     },
   ];
 
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.6,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <>
       {/* ハンバーガーボタン */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed top-6 right-6 md:right-20 z-50 w-8 h-8"
+        className="fixed top-6 right-6 md:right-20 z-50 w-8 h-8 cursor-pointer"
         aria-label="menu"
       >
         <span
@@ -60,7 +75,6 @@ export default function HamburgerMenu() {
         />
       </button>
 
-      {/* オーバーレイ */}
       {open && (
         <div
           className="fixed inset-0 bg-black/60 z-40"
@@ -68,7 +82,6 @@ export default function HamburgerMenu() {
         />
       )}
 
-      {/* メニュー本体 */}
       <aside
         className={`
           fixed top-0 right-0 z-40 h-full
@@ -89,10 +102,31 @@ export default function HamburgerMenu() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 mt-6 text-center">
-            <Link href="/privacy" className="menu-info-btn">
+            <Link
+              href="/privacy"
+              className="relative inline-block cursor-pointer
+              transition-all duration-300
+              hover:scale-105 hover:text-black/70
+              after:absolute after:left-0 after:-bottom-1
+              after:h-[1px] after:w-0
+              after:bg-black
+              after:transition-all after:duration-300
+              hover:after:w-full"
+            >
               プライバシーポリシー
             </Link>
-            <Link href="/company" className="menu-info-btn">
+
+            <Link
+              href="/company"
+              className="relative inline-block cursor-pointer
+              transition-all duration-300
+              hover:scale-105 hover:text-black/70
+              after:absolute after:left-0 after:-bottom-1
+              after:h-[1px] after:w-0
+              after:bg-black
+              after:transition-all after:duration-300
+              hover:after:w-full"
+            >
               特定商取引法
             </Link>
           </div>
@@ -101,14 +135,19 @@ export default function HamburgerMenu() {
         <div className="my-6 border-t mx-6 md:mx-8" />
 
         {/* ===== 店舗一覧 ===== */}
-        <nav className=" px-6 md:px-8 h-[calc(100vh-18rem)]">
-          <div className="flex flex-col  gap-8">
+        <nav className="px-6 md:px-8 h-[calc(100vh-18rem)]">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate={open ? "show" : "hidden"}
+            className="flex flex-col gap-8"
+          >
             {stores.map((store, i) => (
-              <div
+              <motion.div
                 key={i}
+                variants={item}
                 className="flex flex-col justify-around md:flex-row gap-4 items-center border-b pb-6"
               >
-                {/* 画像＋店舗名 */}
                 <div className="relative w-full h-40 md:w-[220px] md:h-[140px] rounded-lg overflow-hidden">
                   <Image
                     src={store.image}
@@ -122,42 +161,28 @@ export default function HamburgerMenu() {
                   </div>
                 </div>
 
-                {/* ボタン */}
                 <div className="flex flex-col gap-2 w-full md:w-auto">
                   <p className="text-center font-semibold text-sm tracking-wide">
                     {store.name}
                   </p>
                   <Link
                     href={store.siteUrl}
-                    className="w-full text-center px-6 py-2 border border-black"
+                    className="w-full text-center px-6 py-2 border border-black hover:bg-black hover:text-white transition"
                   >
                     公式サイト
                   </Link>
                   <Link
                     href={store.recruitUrl}
-                    className="w-full text-center px-6 py-2 border border-black"
+                    className="w-full text-center px-6 py-2 border border-black hover:bg-black hover:text-white transition"
                   >
                     求人サイト
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </nav>
       </aside>
-
-      <style jsx>{`
-        .menu-info-btn {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0.75rem;
-          background: #000;
-          color: #fff;
-          font-weight: 500;
-          border-radius: 0.5rem;
-        }
-      `}</style>
     </>
   );
 }

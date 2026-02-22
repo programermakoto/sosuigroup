@@ -10,7 +10,7 @@ import SNSGrid from "./component/SNSGrid";
 
 export default function Home() {
   return (
-    <main className="bg-white w-full  min-h-screen items-center justify-center font-sans">
+    <main className="bg-white w-full py-15 min-h-screen items-center justify-center font-sans">
 
       <Hero />
       <Topwrapper />
