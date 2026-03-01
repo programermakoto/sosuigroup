@@ -42,7 +42,7 @@ export default function Company() {
             </h1>
 
             <p className="max-w-xl mx-auto text-gray-600 leading-relaxed text-sm">
-              夜のエンターテインメントをアップデートし、
+              夜のエンターテインメントをアップデートし、<br className="md:hidden"></br>
               誇りと品格ある空間を創造する。
             </p>
           </motion.div>
@@ -90,16 +90,16 @@ export default function Company() {
                   <li>・日々努力し、日々改善、向上するバイタリティー</li>
                 </ul>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  を大切にしてお客様にSOSUI GROUP選んで頂き<br></br>
+                  を大切にしてお客様にSOSUI GROUPを<br className="md:hidden"></br>選んで頂き<br></br>
                   沢山の方に満足して頂けるお店づくりの為に<br></br>
                   努力できるスタッフ（仲間）を募集しています。<br></br>
                   <br></br>
                   スタッフ（仲間）が自分の仕事に責任と自信を持ち
                   お店と仲間を誇りに想い、皆で成長し、<br></br>
-                  一人一人の物心両面の豊かさを実現していきます。<br></br>
+                  一人一人の物心両面の豊かさを<br className="md:hidden"></br>実現していきます。<br></br>
                   <br></br>
                   努力してきた自分達にしか成し得ない<br></br>
-                  奈良県の水商売の新しい文化、価値を作っていく事が<br></br>
+                  奈良県の水商売の新しい文化、<br className="md:hidden"></br>価値を作っていく事が<br></br>
                   自分達の定めだと思っています。
                 </p>
               </div>
