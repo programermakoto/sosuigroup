@@ -129,171 +129,179 @@ export default function CastRecruit() {
               <p>経験者と同じく待遇は充実。未経験からでもキャリアアップ可能です。</p>
             </div>
           </section>
-    {/* ======= SOSUI GROUPが求める存在 ======= */}
-<section className="max-w-6xl mx-auto px-4 md:px-16 mt-16 md:mt-28 py-16">
-  <h4 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-12 text-center">
-    SOSUI GROUPが求める存在
-  </h4>
+          {/* ======= SOSUI GROUPが求める存在 ======= */}
+          <section className="max-w-6xl mx-auto px-4 md:px-16 mt-16 md:mt-28 py-16">
+            <h4 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-12 text-center">
+              SOSUI GROUPが求める存在
+            </h4>
 
-  {/* ================= PC ================= */}
-  <div className="hidden md:flex relative w-full h-[420px] items-center justify-center">
+            {/* ================= PC ================= */}
+            <div className="hidden md:flex relative w-full h-[420px] items-center justify-center">
 
-    {/* 三角形の線 */}
-    <svg
-      className="absolute inset-0 w-full h-full"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-    >
-      <polyline
-        points="50,8 20,92 80,92 50,8"
-        fill="none"
-        stroke="#888"
-        strokeWidth="0.8"
-      />
-    </svg>
+              {/* 三角形の線 */}
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                <polyline
+                  points="50,8 20,92 80,92 50,8"
+                  fill="none"
+                  stroke="#888"
+                  strokeWidth="0.8"
+                />
+              </svg>
 
-    {/* 上 */}
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
-      <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
-        向上心がある
-      </div>
-    </div>
+              {/* 上 */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
+                <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
+                  向上心がある
+                </div>
+              </div>
 
-    {/* 左下 */}
-    <div className="absolute bottom-0 left-[20%] -translate-x-1/2 z-10">
-      <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
-        お客様に最高の時間を提供
-      </div>
-    </div>
+              {/* 左下 */}
+              <div className="absolute bottom-0 left-[20%] -translate-x-1/2 z-10">
+                <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
+                  お客様に最高の時間を提供
+                </div>
+              </div>
 
-    {/* 右下 */}
-    <div className="absolute bottom-0 right-[20%] translate-x-1/2 z-10">
-      <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
-        仲間と協力して成長
-      </div>
-    </div>
-  </div>
+              {/* 右下 */}
+              <div className="absolute bottom-0 right-[20%] translate-x-1/2 z-10">
+                <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
+                  仲間と協力して成長
+                </div>
+              </div>
+            </div>
 
-  {/* ================= SP ================= */}
-  <div className="md:hidden flex flex-col items-center gap-10 relative">
+            {/* ================= SP ================= */}
+            <div className="md:hidden flex flex-col items-center gap-10 relative">
 
-    <div className="relative">
-      <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
-        向上心がある
-      </div>
-    </div>
+              <div className="relative">
+                <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
+                  向上心がある
+                </div>
+              </div>
 
-    <div className="w-[1px] h-8 bg-gray-300"></div>
+              <div className="w-[1px] h-8 bg-gray-300"></div>
 
-    <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
-      お客様に最高の時間を提供
-    </div>
+              <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
+                お客様に最高の時間を提供
+              </div>
 
-    <div className="w-[1px] h-8 bg-gray-300"></div>
+              <div className="w-[1px] h-8 bg-gray-300"></div>
 
-    <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
-      仲間と協力して成長
-    </div>
-  </div>
-</section>
+              <div className="font-semibold bg-white px-6 py-3 shadow-md rounded-md">
+                仲間と協力して成長
+              </div>
+            </div>
+          </section>
           {/* ================= JOB INFO ================= */}
           <section className="max-w-5xl mx-auto px-4 md:px-16 mt-16 md:mt-28 space-y-12">
             <h3 className="text-2xl md:text-3xl font-light mb-6">募集詳細</h3>
 
             {/* ======= 給与 ======= */}
-            <div className="border rounded-lg overflow-hidden">
-              <h4 className="bg-gray-100 px-4 py-2 font-semibold text-gray-700">給与</h4>
-              <div className="grid grid-cols-2 border-t border-gray-300">
-                <div className="bg-gray-50 border-r border-gray-300 p-4 font-medium text-gray-700">
-                  <div className="py-2">正社員</div>
-                  <div className="py-2">アルバイト</div>
-                  <div className="py-2">送りドライバー</div>
+            <div className="border rounded-xl overflow-hidden">
+              <h4 className="bg-gray-100 px-4 py-3 font-semibold text-gray-700">
+                給与
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 border-t">
+
+                {/* 左：項目 */}
+                <div className="bg-gray-50 md:border-r p-5 font-medium text-gray-700 space-y-4 text-sm md:text-base">
+                  <div>正社員</div>
+                  <div>アルバイト</div>
+                  <div>送りドライバー</div>
                 </div>
-                <div className="bg-white p-4 text-gray-800">
-                  <div className="py-2">月給270,000円～<br />+歩合+各種手当 / 年2回ボーナスあり</div>
-                  <div className="py-2">時給1,300円</div>
-                  <div className="py-2">時給1,580円〜</div>
+
+                {/* 右：内容 */}
+                <div className="bg-white p-5 text-gray-800 space-y-4 text-sm md:text-base leading-relaxed">
+                  <div>月給270,000円～ +歩合+各種手当 / 年2回ボーナスあり</div>
+                  <div>時給1,300円</div>
+                  <div>時給1,580円〜</div>
                 </div>
+
               </div>
             </div>
 
             {/* ======= 資格・待遇 ======= */}
-            <div className="border rounded-xl overflow-hidden shadow-lg">
-              <h4 className="bg-gray-100 px-4 py-2 font-semibold text-gray-700">資格・待遇</h4>
-              <div className="grid grid-cols-2 border-t border-gray-300">
-                <div className="bg-gray-50 border-r border-gray-300 p-4 font-medium text-gray-700 space-y-2">
-                  <div>資格</div>
-                  <div>待遇</div>
-                </div>
-                <div className="bg-white p-4 text-gray-800 space-y-2">
-                  <div className="py-2">
+            <div className="border rounded-xl overflow-hidden shadow-md">
+              <h4 className="bg-gray-100 px-4 py-3 font-semibold text-gray-700">
+                資格・待遇
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 border-t">
+
+                {/* 左 */}
+                <div className="bg-gray-50 md:border-r p-5 font-medium text-gray-700 space-y-6 text-sm md:text-base">
+                  <div>
+                    <div className="font-semibold mb-2">資格</div>
                     18歳以上、要普通免許、男女問いません！<br />
                     経験者・未経験者大歓迎！
                   </div>
-                  <div className="grid grid-cols-1 gap-2">
-                    <div className="bg-blue-100 rounded px-3 py-1">日払いOK</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">未経験者大歓迎</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">経験者優遇</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">体験入社あり</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">歩合あり</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">賞与あり</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">駐車場あり</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">弁当手当て有り</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">家賃補助有り・社保完備</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">社員旅行あり</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">長期休暇あり</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">祝い金あり</div>
-                    <div className="bg-blue-100 rounded px-3 py-1">研修制度あり</div>
+                </div>
+
+                {/* 右 */}
+                <div className="bg-white p-5">
+                  <div className="font-semibold text-gray-700 mb-4 text-sm md:text-base">
+                    待遇
+                  </div>
+
+                  {/* スマホ2列 / PC3列 */}
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs md:text-sm">
+                    {[
+                      "日払いOK",
+                      "未経験歓迎",
+                      "経験者優遇",
+                      "体験入社あり",
+                      "歩合あり",
+                      "賞与あり",
+                      "駐車場あり",
+                      "弁当手当",
+                      "家賃補助",
+                      "社員旅行",
+                      "長期休暇",
+                      "祝い金",
+                      "研修制度"
+                    ].map((item, i) => (
+                      <div key={i} className="border rounded px-2 py-1 text-center">
+                        {item}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* ======= 業種・職種 ======= */}
-            <div className="border rounded-lg overflow-hidden">
-              <h4 className="bg-gray-100 px-4 py-2 font-semibold text-gray-700">業種・職種</h4>
-              <div className="grid grid-cols-2 border-t border-gray-300">
-                <div className="bg-gray-50 border-r border-gray-300 p-4 font-medium text-gray-700">
-                  <div className="py-2">業種</div>
-                  <div className="py-2">職種</div>
-                </div>
-                <div className="bg-white p-4 text-gray-800">
-                  <div className="py-2">キャバクラ・ラウンジ・クラブ</div>
-                  <div className="py-2">
-                    キャストマネージメント<br />
-                    ホール業務<br />
-                    送迎<br />
-                    キッチン
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             {/* ======= 勤務地・エリア ======= */}
-            <div className="border rounded-lg overflow-hidden">
-              <h4 className="bg-gray-100 px-4 py-2 font-semibold text-gray-700">勤務地・エリア</h4>
-              <div className="grid grid-cols-2 border-t border-gray-300">
-                <div className="bg-gray-50 border-r border-gray-300 p-4 font-medium text-gray-700">
-                  <div className="py-2">エリア</div>
-                  <div className="py-2">勤務地</div>
-                  <div className="py-2">最寄駅</div>
+            <div className="border rounded-xl overflow-hidden">
+              <h4 className="bg-gray-100 px-4 py-3 font-semibold text-gray-700">
+                勤務地・エリア
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 border-t">
+
+                {/* 項目 */}
+                <div className="bg-gray-50 md:border-r p-5 font-medium text-gray-700 text-sm md:text-base space-y-6">
+                  <div>エリア</div>
+                  <div>勤務地</div>
                 </div>
-                <div className="bg-white p-4 text-gray-800 space-y-2">
+
+                {/* 内容 */}
+                <div className="bg-white p-5 text-sm md:text-base space-y-6 leading-relaxed">
                   <div>
-                    奈良県/奈良市三条町<br />
-                    奈良県/奈良市三条町<br />
-                    奈良県/橿原市内膳町
-                  </div>
-                  <div className="space-y-1">
-                    奈良県奈良市三条町606-60 ジョイパレス奈良駅前3F<br />
-                    <Link href="https://maps.app.goo.gl/J7ja11JzkWFTYGqg9" target="_blank" className="text-blue-600 hover:underline">MAPを開く</Link><br />
-                    奈良県奈良市三条町606-60 ジョイパレス奈良駅前2F<br />
-                    <Link href="https://maps.app.goo.gl/J7ja11JzkWFTYGqg9" target="_blank" className="text-blue-600 hover:underline">MAPを開く</Link><br />
-                    奈良県橿原市内膳町1-3-6 スタービル5Ｆ<br />
-                    <Link href="https://maps.app.goo.gl/86T55egrTD7A25pm8" target="_blank" className="text-blue-600 hover:underline">MAPを開く</Link><br />
-
+                    奈良県 / 奈良市三条町<br />
+                    奈良県 / 橿原市内膳町
                   </div>
 
+                  <div className="space-y-2">
+                    奈良市三条町606-60 3F<br />
+                    奈良市三条町606-60 2F<br />
+                    橿原市内膳町1-3-6 5F
+                  </div>
                 </div>
               </div>
             </div>
