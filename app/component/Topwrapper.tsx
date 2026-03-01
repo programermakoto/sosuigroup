@@ -3,12 +3,10 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Topwrapper() {
 
-  /* =========================
-     マウス追従ライト
-  ========================== */
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
@@ -19,95 +17,79 @@ export default function Topwrapper() {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
-  /* =========================
-     パララックス
-  ========================== */
   const { scrollY } = useScroll()
-  const ySlow = useTransform(scrollY, [0, 1000], [0, -80])
-  const yFast = useTransform(scrollY, [0, 1000], [0, -150])
+  const ySlow = useTransform(scrollY, [0, 800], [0, -40])
+  const yFast = useTransform(scrollY, [0, 800], [0, -80])
 
   const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.9, ease: "easeOut" }
+      transition: { duration: 0.8 }
     }
   }
 
   return (
-    <section className="relative space-y-40 bg-[#f3efe9] overflow-hidden">
+    <section className="relative bg-[#f2efe9] overflow-hidden">
 
-      {/* =========================
-          マウス追従ライトレイヤー
-      ========================== */}
+      {/* マウスライト */}
       <div
-        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
+        className="pointer-events-none fixed inset-0 z-0"
         style={{
           background: `radial-gradient(
-            600px at ${position.x}px ${position.y}px,
-            rgba(255,255,255,0.12),
+            500px at ${position.x}px ${position.y}px,
+            rgba(255,255,255,0.15),
             transparent 70%
           )`
         }}
       />
 
-      {/* =========================
-          テクスチャ
-      ========================== */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.04] bg-[url('/assets/noise.png')]" />
+      {/* 斜め3Dウォール */}
+      <motion.div
+        style={{ y: ySlow }}
+        className="absolute -top-32 -left-32 w-[140%] h-[400px] bg-[#e8e4dc] rotate-[-6deg] shadow-inner"
+      />
 
       {/* =========================
           SOSUI GROUP
       ========================== */}
-      <article className="relative py-40 z-10">
-
-        {/* パララックス背景装飾 */}
-        <motion.div
-          style={{ y: ySlow }}
-          className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(0,0,0,0.05),transparent_60%)]"
-        />
+      <article className="relative z-10 py-28">
 
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="relative max-w-7xl mx-auto px-8 md:px-20"
+          className="max-w-6xl mx-auto px-6 md:px-16"
         >
 
-          <div className="mb-32">
-            <h2 className="text-4xl md:text-6xl font-extralight tracking-[0.35em] text-[#111]">
+          <div className="mb-20">
+            <h2 className="text-3xl md:text-5xl font-light tracking-[0.3em] text-[#111]">
               SOSUI GROUP
             </h2>
-            <p className="mt-6 text-xs tracking-[0.5em] text-gray-500">
+            <p className="mt-4 text-[11px] tracking-[0.5em] text-gray-500">
               SPACE / PEOPLE / VALUE
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-24 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
 
-            <div className="space-y-10 text-gray-800 font-light text-lg leading-loose">
-              <p>奈良県奈良市・橿原市を中心に上質なナイトシーンを創造。</p>
-              <p>空間と人を結ぶブランドを展開しています。</p>
+            <div className="space-y-8 text-gray-800 font-light text-base leading-loose">
+              <p>奈良県の奈良市、橿原市を中心にキャバクラ、ラウンジ、ガールズバーを多店舗展開しております。</p>
+              <p> 『人の想いに人が集まる会社』をモットーに掲げ</p>
 
-              <p className="text-2xl md:text-3xl tracking-wide text-black pt-10 border-t border-black/20">
-                「人の想いに、人が集まる。」
-              </p>
-
-              <p>
-                一人ひとりの活気と活力を束ね、
-                奈良から全国へ。
-              </p>
+              <div className="mt-10 p-8 backdrop-blur-md bg-white/40 border border-black/10 rounded-2xl shadow-xl">                
+                <p className="text-xl tracking-wide text-black">
+                  一人一人の活気、活力を一つにまとめ<br></br>
+                  奈良県から全国に出店していくつもりです。<br></br>
+                  常識にとらわれない様々なチャレンジを進めて参ります。
+                </p>
+              </div>
             </div>
 
-            <motion.div
-              style={{ y: yFast }}
-              className="hidden md:block"
-            >
-              <div className="w-full h-[1px] bg-black/20 mb-16" />
-              <div className="w-3/4 h-[1px] bg-black/10 mb-16 ml-auto" />
-              <div className="w-1/2 h-[1px] bg-black/5" />
+            <motion.div style={{ y: yFast }} className="hidden md:block">
+              <div className="h-[180px] w-[1px] bg-black/20 mx-auto shadow-lg" />
             </motion.div>
 
           </div>
@@ -118,63 +100,73 @@ export default function Topwrapper() {
       {/* =========================
           代表挨拶
       ========================== */}
-      <section className="relative py-40 bg-white z-10">
+      <section className="relative py-28 z-10">
 
-        <motion.div
-          style={{ y: ySlow }}
-          className="absolute top-0 right-0 w-1/3 h-full bg-[#f6f4f0] hidden md:block"
-        />
+        <div className="absolute bottom-0 right-[-20%] w-[80%] h-[260px] bg-[#e6e1d8] rotate-[8deg]" />
 
-<motion.article
-  variants={fadeUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="
-    relative 
-    max-w-7xl 
-    mx-auto 
-    flex 
-    flex-col-reverse     /* ← ここ変更 */
-    md:flex-row-reverse 
-    items-center 
-    gap-24 
-    px-8 
-    md:px-20
-  "
->
+        <motion.article
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 px-6 md:px-16"
+        >
 
-
-          <div className="w-full md:w-[38%] relative">
-            <div className="absolute -inset-6 border border-black/20 rounded-[40px] hidden md:block" />
+          {/* 画像 */}
+          <div className="w-full md:w-[40%] relative">
+            <div className="absolute -inset-4 bg-white/40 backdrop-blur-sm rounded-[28px] shadow-2xl" />
             <Image
               src="/assets/member05.webp"
               alt="代表挨拶"
               width={600}
               height={600}
-              className="relative rounded-[40px] object-cover w-full shadow-2xl"
+              className="relative rounded-[28px] object-cover w-full"
             />
           </div>
 
-          <div className="w-full md:w-[48%] space-y-12">
-            <p className="text-xs tracking-[0.5em] text-gray-400 uppercase">
+          {/* テキスト */}
+          <div className="w-full md:w-[50%] space-y-8">
+
+            <p className="text-[11px] tracking-[0.4em] text-gray-400 uppercase">
               Representative Message
             </p>
 
-            <h2 className="text-4xl md:text-5xl font-light leading-tight">
+            <h2 className="text-3xl md:text-4xl font-light leading-tight">
               代表挨拶
             </h2>
 
-            <p className="text-lg text-gray-700 leading-loose font-light">
-              「選ばれる空間」を創り続けること。
+            <p className="text-base text-gray-700 leading-loose font-light">
+            奈良県の地元の方から出張、観光の方に"選ばれるお店作り"を心掛けています。
             </p>
 
-            <div className="bg-black text-white p-10 rounded-[32px] mt-10">
-              <h3 className="text-3xl md:text-4xl font-light leading-snug">
-                奈良のナイトカルチャーに、
-                新しい文化と価値を創る。
-              </h3>
-            </div>
+            
+
+            {/* 🔥 ここにボタン追加 */}
+            <Link href="/company">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="
+                  mt-6
+                  px-10
+                  py-4
+                  rounded-full
+                  bg-white/40
+                  backdrop-blur-md
+                  border
+                  border-black/10
+                  shadow-lg
+                  hover:shadow-2xl
+                  transition-all
+                  duration-300
+                  tracking-[0.2em]
+                  text-sm
+                "
+              >
+                代表挨拶を見る
+              </motion.button>
+            </Link>
+
           </div>
 
         </motion.article>

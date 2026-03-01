@@ -1,234 +1,232 @@
 'use client'
 
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring
-} from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion, useTransform, useScroll, useSpring } from 'framer-motion'
+
+const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }
+
+const shops = [
+  { name: 'CLUB gloria', link: 'https://www.tainew.com/kansai/shop/view/v502354/', image: '/assets/store03.webp' },
+  { name: 'LOUNGE blanc', link: 'https://www.tainew.com/kansai/shop/view/v1000605/', image: '/assets/store04.webp' },
+  { name: 'Luxury Bar GOAT', link: 'https://www.tainew.com/kansai/shop/view/v1000605/', image: '/assets/store09.webp' },
+]
+
+
 
 export default function CastRecruit() {
-
-  /* ================= 光演出 ================= */
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
-
   useEffect(() => {
-    const move = (e: MouseEvent) => {
-      setMouse({ x: e.clientX, y: e.clientY })
-    }
+    const move = (e: MouseEvent) => setMouse({ x: e.clientX, y: e.clientY })
     window.addEventListener('mousemove', move)
     return () => window.removeEventListener('mousemove', move)
   }, [])
 
-  const smoothX = useSpring(mouse.x, { stiffness: 40, damping: 30 })
-  const smoothY = useSpring(mouse.y, { stiffness: 40, damping: 30 })
-
   const { scrollY } = useScroll()
-  const layer1 = useTransform(scrollY, [0, 1500], [0, -120])
-  const layer2 = useTransform(scrollY, [0, 1500], [0, -60])
+  const ySlow = useTransform(scrollY, [0, 800], [0, -60])
+  const yFast = useTransform(scrollY, [0, 800], [0, -120])
+  const smoothX = useSpring(mouse.x, { stiffness: 40, damping: 25 })
+  const smoothY = useSpring(mouse.y, { stiffness: 40, damping: 25 })
 
   return (
-    <main className="relative bg-[#0c0c0d] text-white overflow-hidden">
+    <>
+    {/* ================= HERO ================= */}
+<section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
 
-      {/* ================= マウス追従ライト ================= */}
+<motion.div style={{ y: yFast }} className="absolute inset-0 flex items-center justify-center">
+
+  <picture className="w-full h-full flex items-center justify-center">
+    {/* SP画像 */}
+    <source
+      media="(max-width: 768px)"
+      srcSet="/assets/cast.sp.webp"
+    />
+
+    {/* PC画像 */}
+    <Image
+      src="/assets/cast.pc.webp"
+      alt="hero"
+      fill
+      priority
+      className="object-contain"
+    />
+  </picture>
+
+</motion.div>
+
+</section>
+    <section className="relative bg-[#f4f2ee] overflow-hidden text-black py-24">
+
+      {/* 背景ライト */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
-          background: `radial-gradient(
-            700px at ${smoothX.get()}px ${smoothY.get()}px,
-            rgba(255,215,170,0.15),
-            transparent 65%
-          )`
+          background: `radial-gradient(700px at ${smoothX.get()}px ${smoothY.get()}px, rgba(255,255,255,0.15), transparent 80%)`
         }}
       />
 
-      {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center justify-center text-center px-6">
+      {/* 斜め3Dパネル */}
+      <motion.div style={{ y: ySlow }} className="absolute -top-40 -left-40 w-[150%] h-[400px] bg-[#e6e2d8] rotate-[-6deg] shadow-inner" />
 
-        <motion.div
-          style={{ y: layer1 }}
-          className="space-y-10 max-w-4xl"
-        >
-          <p className="tracking-[0.5em] text-sm text-gray-400">
-            CAST RECRUIT 2026
-          </p>
+      <div className="max-w-6xl mx-auto px-6 md:px-16 relative z-10 space-y-24">
 
-          <h1 className="text-5xl md:text-7xl font-extralight tracking-wide leading-tight">
-            盛況につき<br className="md:hidden" />
-            キャスト大募集
-          </h1>
-
-          <div className="w-20 h-[1px] bg-yellow-400 mx-auto" />
-
-          <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-            平日から満卓。新規来店比率60％以上。<br />
-            圧倒的集客力で、安定して稼げる環境を保証します。
-          </p>
+        {/* ===== タイトル ===== */}
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.8 }} className="text-center">
+          <h2 className="text-5xl md:text-6xl font-extralight tracking-[0.35em]">CAST RECRUIT</h2>
+          <p className="text-sm tracking-[0.5em] text-gray-500 mt-2">SOSUI GROUP</p>
         </motion.div>
 
-      </section>
-
-      {/* ================= 数字で証明 ================= */}
-      <motion.section
-        style={{ y: layer2 }}
-        className="py-32 px-6"
-      >
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16 text-center">
-
-          <Stat number="60%+" label="新規来店比率" />
-          <Stat number="¥12,000~" label="時間報酬目安" />
-          <Stat number="100%" label="全額日払いOK" />
-
+        {/* ===== 店舗カード ===== */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {shops.map((shop, i) => (
+            <motion.div key={i} whileHover={{ y: -8, scale: 1.02 }} transition={{ duration: 0.5 }} className="group relative rounded-3xl shadow-2xl overflow-hidden bg-white/70 backdrop-blur-md">
+              <Link href={shop.link} target="_blank">
+                <div className="relative h-64 md:h-72 w-full overflow-hidden">
+                  <Image src={shop.image} alt={shop.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+                <div className="absolute bottom-6 left-6">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">{shop.name}</h3>
+                  <span className="text-sm text-white tracking-wide">求人詳細 →</span>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
-      </motion.section>
 
-      {/* ================= 安心設計 ================= */}
-      <section className="py-40 px-6 bg-white/[0.03]">
-        <div className="max-w-5xl mx-auto space-y-20">
+        {/* ===== 業務概要 ===== */}
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.8 }} className="relative mt-20">
+          <p className="absolute top-0 left-0 text-3xl md:text-4xl font-bold text-gray-300 rotate-[-6deg] opacity-30">WORK</p>
+          <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 gap-8">
+            <div className="p-8 rounded-3xl shadow-2xl bg-white/60 backdrop-blur-lg hover:scale-105 transition-transform duration-500">
+              <h4 className="text-xl font-semibold mb-4">業務概要</h4>
+              <ul className="list-disc list-inside leading-loose text-gray-700">
+                <li>接客・ドリンク提供・お客様との会話など</li>
+                <li>未経験者も安心の研修あり</li>
+                <li>キャバクラ・ラウンジでの業務全般</li>
+              </ul>
+            </div>
 
-          <SectionTitle title="SUPPORT & SAFETY" />
+            <div className="p-8 rounded-3xl shadow-2xl bg-white/60 backdrop-blur-lg hover:scale-105 transition-transform duration-500">
+              <h4 className="text-xl font-semibold mb-4">給与・待遇</h4>
+              <p className="leading-loose">体入時給 5,000円以上 【体験日収 20,000円】＋入店時同様の各種バックあり ★ノルマ一切無し ★全額日払い</p>
+              <ul className="list-disc list-inside mt-4 text-gray-700">
+                <li>アクセス: JR奈良駅 徒歩1分 / 近鉄近鉄奈良駅 徒歩11分</li>
+                <li>勤務時間: 20:00～LAST</li>
+                <li>応募年齢: 18歳～35歳</li>
+                <li>すぐに働きたい方大歓迎</li>
+                <li>体入給与例: 3時間で15,000円以上、5時間で25,000円以上</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
 
-          <FeatureBlock
-            title="未経験完全サポート"
-            text="接客・会話・ドリンク作成・席マナーまで丁寧にサポート。体験入店で不安を解消してから本入店可能です。"
-          />
+        {/* ===== お店のこだわり ===== */}
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.8 }} className="grid md:grid-cols-3 gap-8 mt-16">
+          {[
+            { title: 'お給料', items: ['全額日払いOK', 'ドリンクバックあり', '指名バックあり', '同伴バックあり', 'ノルマなし'] },
+            { title: '身なり', items: ['ドレスレンタルあり', 'ヒールレンタルあり', 'ヘアメイク完備'] },
+            { title: '働く環境', items: ['未経験者大歓迎', '経験者優遇', 'Wワーク歓迎', '3時間以内の勤務OK', '週1回出勤OK', '土日営業', '終電上がりOK', '送りあり', '友達と一緒に体入OK'] }
+          ].map((block, i) => (
+            <motion.div key={i} className="p-6 rounded-3xl shadow-2xl bg-white/50 backdrop-blur-md hover:scale-105 transition-transform duration-500">
+              <h4 className="text-xl font-semibold mb-3">{block.title}</h4>
+              <ul className="list-disc list-inside text-gray-700 leading-loose">
+                {block.items.map((it, j) => (<li key={j}>{it}</li>))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
 
-          <FeatureBlock
-            title="身バレ対策"
-            text="SNS管理徹底・写真掲載任意・送迎あり。プライバシーを守る体制を整えています。"
-          />
+       
+        {/* ===== LOCATION / GOOGLE MAP ===== */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 0.8 }}
+          className="relative mt-24"
+        >
 
-          <FeatureBlock
-            title="ノルマ・罰金なし"
-            text="精神的負担をなくし、長期的に働ける設計。数字ではなく“質”を重視します。"
-          />
+          {/* 背景ビッグテキスト */}
+          <p className="absolute -top-16 left-0 text-6xl md:text-8xl font-bold text-gray-300 opacity-20 rotate-[-8deg] pointer-events-none">
+            LOCATION
+          </p>
 
-        </div>
-      </section>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
 
-      {/* ================= 条件 ================= */}
-      <section className="py-40 px-6">
-        <div className="max-w-5xl mx-auto space-y-16">
+            {/* 住所情報 */}
+            <div className="space-y-6">
 
-          <SectionTitle title="JOB DETAILS" />
+              <motion.div
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ duration: 0.5 }}
+                className="p-8 bg-white/60 backdrop-blur-xl rounded-3xl shadow-2xl"
+              >
+                <h3 className="text-2xl font-semibold mb-6 tracking-wide">
+                  ACCESS
+                </h3>
 
-          <div className="grid md:grid-cols-2 gap-12 text-gray-300">
+                <p className="leading-loose text-gray-700">
+                  〒630-8244<br />
+                  奈良県奈良市三条町606-60<br />
+                  ジョイパレス奈良駅前パートⅡ 301号
+                </p>
 
-            <Job title="職種" content="フロアキャスト" />
-            <Job title="時間報酬" content="12,000円〜＋各種高額バック" />
-            <Job title="勤務時間" content="20:00〜翌1:00 週1日/2h〜OK 終電可 送り有" />
-            <Job title="待遇" content="全額日払い・寮完備・ドレス貸与・ヘアメイク完備・個人ロッカー" />
-            <Job title="応募資格" content="18歳以上（高校生不可）未経験歓迎・経験者優遇・WワークOK" />
-            <Job title="体験入店" content="即日可能・複数回OK・全額日払い" />
+                <div className="mt-6 text-gray-600 text-sm leading-loose">
+                  JR【奈良駅】徒歩1分<br />
+                  近鉄【近鉄奈良駅】徒歩11分
+                </div>
+
+                <Link
+                  href="https://www.google.com/maps/search/?api=1&query=奈良県奈良市三条町606-60 ジョイパレス奈良駅前パートⅡ301号"
+                  target="_blank"
+                  className="inline-block mt-8 px-8 py-3 rounded-3xl border text-sm hover:bg-black hover:text-white transition"
+                >
+                  Google Mapで開く →
+                </Link>
+              </motion.div>
+
+            </div>
+
+            {/* Google Map 3Dカード */}
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl bg-white/70 backdrop-blur-xl"
+              style={{ transformPerspective: 1200 }}
+            >
+
+              {/* ガラス反射レイヤー */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent pointer-events-none z-10" />
+
+              <iframe
+                src="https://www.google.com/maps?q=奈良県奈良市三条町606-60 ジョイパレス奈良駅前パートⅡ301号&output=embed"
+                width="100%"
+                height="420"
+                style={{ border: 0 }}
+                loading="lazy"
+                className="rounded-3xl"
+              />
+
+            </motion.div>
 
           </div>
-
-        </div>
-      </section>
-
-      {/* ================= CTA ================= */}
-      <section className="relative py-40 text-center">
-
-        <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/10 to-transparent" />
-
-        <div className="relative space-y-10">
-
-          <h2 className="text-4xl font-extralight tracking-wide">
-            まずはご相談からでも
-          </h2>
-
-          <div className="flex flex-col md:flex-row gap-8 justify-center">
-
-            <CTA
-              href="https://line.me/R/ti/p/xxxxxxxx"
-              label="公式LINEで応募"
-              primary
-            />
-
-            <CTA
-              href="tel:08000000000"
-              label="電話で応募"
-            />
-
+        </motion.div>
+        {/* ===== SNS / 連絡 ===== */}
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.8 }} className="text-center mt-16 space-y-4">
+          <h3 className="text-2xl font-bold tracking-wide">SNS / お問い合わせ</h3>
+          <div className="flex flex-wrap justify-center gap-4 mt-4">
+            <Link href="https://www.tiktok.com/@gloria.nara?_r=1&_t=ZS-93JBjdqHFkQ" className="px-6 py-2 border rounded-3xl text-sm hover:bg-black hover:text-white transition">TikTok</Link>
+            <Link href="https://www.instagram.com/sosui_group" className="px-6 py-2 border rounded-3xl text-sm hover:bg-black hover:text-white transition">Instagram</Link>
+            <Link href="https://line.me/ti/p/qgwz-BfykK" target="_blank" className="px-6 py-2 border rounded-3xl text-sm hover:bg-black hover:text-white transition">公式LINE</Link>
+            <Link href="tel:08061441370" className="px-6 py-2 border rounded-3xl text-sm hover:bg-black hover:text-white transition">お電話</Link>
           </div>
+        </motion.div>
 
-        </div>
-
-      </section>
-
-    </main>
-  )
-}
-
-/* ================= UI ================= */
-
-function SectionTitle({ title }: any) {
-  return (
-    <h2 className="text-center text-3xl font-extralight tracking-[0.4em]">
-      {title}
-    </h2>
-  )
-}
-
-function Stat({ number, label }: any) {
-  return (
-    <div className="space-y-4">
-      <p className="text-5xl font-extralight text-yellow-400">
-        {number}
-      </p>
-      <p className="text-gray-400 tracking-widest text-sm">
-        {label}
-      </p>
-    </div>
-  )
-}
-
-function FeatureBlock({ title, text }: any) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-      className="bg-white/[0.05] border border-white/10 p-14 rounded-[40px] backdrop-blur-2xl space-y-6"
-    >
-      <h3 className="text-xl tracking-widest font-light">
-        {title}
-      </h3>
-      <p className="text-gray-400 leading-loose">
-        {text}
-      </p>
-    </motion.div>
-  )
-}
-
-function Job({ title, content }: any) {
-  return (
-    <div className="space-y-3 border-b border-white/10 pb-6">
-      <p className="text-white tracking-widest text-sm">
-        {title}
-      </p>
-      <p>{content}</p>
-    </div>
-  )
-}
-
-function CTA({ href, label, primary }: any) {
-  return (
-    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-      <Link
-        href={href}
-        target="_blank"
-        className={
-          primary
-            ? "px-12 py-4 rounded-full bg-yellow-400 text-black font-semibold shadow-[0_20px_60px_rgba(255,215,0,0.4)]"
-            : "px-12 py-4 rounded-full border border-white text-white"
-        }
-      >
-        {label}
-      </Link>
-    </motion.div>
+      </div>
+    </section>
+    </>
   )
 }

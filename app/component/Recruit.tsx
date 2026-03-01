@@ -1,64 +1,137 @@
+'use client'
+
 import Link from 'next/link'
-import React from 'react'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+import { motion, useSpring } from 'framer-motion'
 
 export default function Recruit() {
+
+  const [mouse, setMouse] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+      setMouse({ x: e.clientX, y: e.clientY })
+    }
+    window.addEventListener('mousemove', move)
+    return () => window.removeEventListener('mousemove', move)
+  }, [])
+
+  const smoothX = useSpring(mouse.x, { stiffness: 40, damping: 25 })
+  const smoothY = useSpring(mouse.y, { stiffness: 40, damping: 25 })
+
   return (
-    <section className="bg-black py-16 text-white w-full text-center space-y-10">
-      <div>
-        <h2 className="text-4xl font-bold tracking-wide">STAFF RECRUIT</h2>
-        <p className="text-sm text-gray-400">スタッフ求人情報</p>
-      </div>
+    <section className="relative bg-[#0c0c0d] py-32 text-white overflow-hidden">
 
-      <p className="text-sm text-gray-300">
-        未経験からでも一流へ。
-        <br />
-        洗練された空間で、自分史上最高のステージを。
-      </p>
+      {/* 背景ライト */}
+      <motion.div
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          background: `radial-gradient(
+            700px at ${smoothX.get()}px ${smoothY.get()}px,
+            rgba(255,255,255,0.08),
+            transparent 70%
+          )`
+        }}
+      />
 
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-        <ThreeDButton href="/cast" label="キャスト募集" />
-        <ThreeDButton href="/boys" label="スタッフ募集" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6 space-y-24 text-center">
+
+        {/* タイトル */}
+        <div className="space-y-6">
+          <h2 className="text-5xl font-extralight tracking-[0.4em]">
+            RECRUIT
+          </h2>
+          <p className="text-gray-400 tracking-widest text-sm">
+            STAFF & CAST
+          </p>
+        </div>
+
+        {/* 2カラム */}
+        <div className="grid md:grid-cols-2 gap-20">
+
+          <RecruitCard
+            href="/cast"
+            image="/assets/cast.pc.webp"
+            title="CAST RECRUIT"
+            subtitle="キャスト募集"
+            description="華やかなステージで、自分史上最高の報酬と価値を。"
+          />
+
+          <RecruitCard
+            href="/boys"
+            image="/assets/black.pc.webp"
+            title="STAFF RECRUIT"
+            subtitle="スタッフ募集"
+            description="一流の空間を支えるプロフェッショナルへ。"
+          />
+
+        </div>
+
       </div>
     </section>
   )
 }
 
-/* ===== 立体ボタン ===== */
-function ThreeDButton({ href, label }: { href: string; label: string }) {
-  return (
-    <Link href={href} className="group relative">
-      {/* 外枠（光る縁） */}
-      <div className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-white/70 via-white to-white/70 blur-sm opacity-70 group-hover:opacity-100 transition" />
 
-      {/* ボタン本体 */}
-      <div
-        className="
-          relative
-          px-10 py-4
-          rounded-full
-          bg-gradient-to-b from-white to-gray-200
-          text-black font-semibold tracking-wide
-          shadow-[0_12px_30px_rgba(255,255,255,0.15)]
-          transform transition-all duration-300
-          group-hover:-translate-y-1
-          group-hover:shadow-[0_20px_40px_rgba(255,255,255,0.25)]
-          active:translate-y-0
-        "
+/* ================= カード ================= */
+
+function RecruitCard({
+  href,
+  image,
+  title,
+  subtitle,
+  description
+}: {
+  href: string
+  image: string
+  title: string
+  subtitle: string
+  description: string
+}) {
+  return (
+    <motion.div
+      whileHover={{ y: -10 }}
+      transition={{ duration: 0.5 }}
+      className="group"
+    >
+      <Link
+        href={href}
+        className="block rounded-[40px] bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/30 transition duration-700 p-10"
       >
-        {/* 光沢ハイライト */}
-        <span
-          className="
-            pointer-events-none
-            absolute top-1 left-1/2 -translate-x-1/2
-            w-4/5 h-1/2
-            rounded-full
-            bg-white/60
-            blur-md
-            opacity-70
-          "
-        />
-        {label}
-      </div>
-    </Link>
+
+        {/* 画像（背景なし） */}
+        <div className="relative h-[420px] flex items-center justify-center">
+
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-contain transition duration-[1200ms] ease-out group-hover:scale-105 drop-shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
+          />
+
+        </div>
+
+        {/* テキスト */}
+        <div className="mt-10 space-y-4 text-left">
+
+          <p className="text-xs tracking-[0.4em] text-gray-400">
+            {subtitle}
+          </p>
+
+          <h3 className="text-2xl font-light tracking-wide">
+            {title}
+          </h3>
+
+          <p className="text-gray-300 text-sm leading-relaxed opacity-70 group-hover:opacity-100 transition duration-500">
+            {description}
+          </p>
+
+          <div className="w-0 h-[1px] bg-white group-hover:w-20 transition-all duration-700" />
+
+        </div>
+
+      </Link>
+    </motion.div>
   )
 }
