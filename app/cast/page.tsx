@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useTransform, useScroll, useSpring } from 'framer-motion'
+import SocialFeed from '../component/SocialFeed'
 
 const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }
 
@@ -214,6 +215,7 @@ export default function CastRecruit() {
 
           </div>
         </motion.div>
+        <SocialFeed></SocialFeed>
         {/* ===== SNS / 連絡 ===== */}
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.8 }} className="text-center mt-16 space-y-4">
           <h3 className="text-2xl font-bold tracking-wide">SNS / お問い合わせ</h3>

@@ -5,15 +5,15 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const pcBackgrounds = [
-  '/assets/hero.pc01.png',
-  '/assets/hero.pc02.JPEG',
-  '/assets/hero.pc03.PNG',
+  '/assets/hero.pc01.webp',
+  '/assets/hero.pc02.webp',
+  '/assets/hero.pc03.webp',
 ]
 
 const spBackgrounds = [
-  '/assets/hero.sp01.png',
-  '/assets/hero.sp02.png',
-  '/assets/hero.sp03.png',
+  '/assets/hero.sp01.webp',
+  '/assets/hero.sp02.webp',
+  '/assets/hero.sp03.webp',
 ]
 
 export default function Hero() {
