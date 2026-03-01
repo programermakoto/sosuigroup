@@ -11,7 +11,7 @@ const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }
 const shops = [
   { name: 'CLUB gloria', link: 'https://www.tainew.com/kansai/shop/view/v502354/', image: '/assets/store03.webp' },
   { name: 'LOUNGE blanc', link: 'https://www.tainew.com/kansai/shop/view/v1000605/', image: '/assets/store04.webp' },
-  { name: 'Luxury Bar GOAT', link: 'https://www.tainew.com/kansai/shop/view/v1000605/', image: '/assets/store09.webp' },
+  { name: 'Luxury Bar GOAT', link: 'https://www.tainew.com/kansai/shop/view/v501057/', image: '/assets/store09.webp' },
 ]
 
 

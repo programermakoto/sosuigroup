@@ -66,6 +66,26 @@ const DEFAULT_IMAGES: ImageItem[] = [
     src: '/assets/member13.webp',
     alt: ''
   },
+  {
+    src: '/assets/member14.webp',
+    alt: ''
+  },
+  {
+    src: '/assets/member15.webp',
+    alt: ''
+  },
+  {
+    src: '/assets/member16.webp',
+    alt: ''
+  },
+  {
+    src: '/assets/member17.webp',
+    alt: ''
+  },
+  {
+    src: '/assets/member18.webp',
+    alt: ''
+  },
 ];
 
 const DEFAULTS = {
