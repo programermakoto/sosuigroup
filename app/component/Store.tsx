@@ -14,13 +14,13 @@ const companies = [
   },
   {
     name: 'LOUNGE blanc',
-    description: '非日常を演出する、上質なナイトエンターテインメント。',
+    description: '派手さではなく、品格で魅せる。大人だけが辿り着く一夜。',
     image: '/assets/store05.webp',
     link: 'https://www.tainew.com/kansai/shop/view/v1000605/',
   },
   {
     name: 'Luxury Bar GOAT',
-    description: '非日常を演出する、上質なナイトエンターテインメント。',
+    description: '非日常を演出する、上質なナイトエンターテインメント',
     image: '/assets/store09.webp',
     link: 'https://www.tainew.com/kansai/shop/view/v501057/',
   }
