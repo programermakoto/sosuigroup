@@ -111,13 +111,13 @@ export default function CastRecruit() {
 
             <div className="p-8 rounded-3xl shadow-2xl bg-white/60 backdrop-blur-lg hover:scale-105 transition-transform duration-500">
               <h4 className="text-xl font-semibold mb-4">給与・待遇</h4>
-              <p className="leading-loose">体入時給 5,000円以上 【体験日収 20,000円】＋入店時同様の各種バックあり ★ノルマ一切無し ★全額日払い</p>
+              <p className="leading-loose">体入時給 5,000円以上 【体験日収 20,000円~】<br></br> ★ノルマ一切無し ★全額日払い</p>
               <ul className="list-disc list-inside mt-4 text-gray-700">
                 <li>アクセス: JR奈良駅 徒歩1分 / 近鉄近鉄奈良駅 徒歩11分</li>
                 <li>勤務時間: 20:00～LAST</li>
                 <li>応募年齢: 18歳～35歳</li>
                 <li>すぐに働きたい方大歓迎</li>
-                <li>体入給与例: 3時間で15,000円以上、5時間で25,000円以上</li>
+              
               </ul>
             </div>
           </div>
