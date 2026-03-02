@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -17,9 +18,9 @@ const spBackgrounds = [
 ]
 
 export default function Hero() {
-
   const [index, setIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   /* =========================
      画面サイズ判定
@@ -30,12 +31,24 @@ export default function Hero() {
     }
 
     checkScreen()
-    window.addEventListener('resize', checkScreen)
+    setMounted(true)
 
+    window.addEventListener('resize', checkScreen)
     return () => window.removeEventListener('resize', checkScreen)
   }, [])
 
   const backgrounds = isMobile ? spBackgrounds : pcBackgrounds
+
+  /* =========================
+     事前プリロード（爆速化）
+  ========================== */
+
+useEffect(() => {
+  backgrounds.forEach((src) => {
+    const img = new window.Image()
+    img.src = src
+  })
+}, [backgrounds])
 
   /* =========================
      スライド
@@ -47,24 +60,35 @@ export default function Hero() {
     return () => clearInterval(timer)
   }, [backgrounds.length])
 
+  if (!mounted) return null
+
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden bg-black">
 
       <AnimatePresence mode="wait">
         <motion.div
           key={backgrounds[index]}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.6, ease: 'easeOut' }}
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${backgrounds[index]})` }}
-        />
+          className="absolute inset-0"
+        >
+          <Image
+            src={backgrounds[index]}
+            alt="Hero Background"
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className="object-cover"
+          />
+        </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-black/50" />
+      {/* オーバーレイ */}
+      <div className="absolute inset-0 bg-black/50 z-10" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full space-y-8">
+      <div className="relative z-20 flex flex-col items-center justify-center w-full h-full space-y-8">
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
