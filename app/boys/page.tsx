@@ -211,15 +211,15 @@ export default function CastRecruit() {
                 {/* 左：項目 */}
                 <div className="bg-gray-50 md:border-r p-5 font-medium text-gray-700 space-y-4 text-sm md:text-base">
                   <div>正社員</div>
-                  <div>アルバイト</div>
+                  <div>店長｜アルバイト</div>
                   <div>送りドライバー</div>
                 </div>
 
                 {/* 右：内容 */}
                 <div className="bg-white p-5 text-gray-800 space-y-4 text-sm md:text-base leading-relaxed">
-                  <div>月給270,000円～ +歩合+各種手当 / 年2回ボーナスあり</div>
-                  <div>時給1,300円</div>
-                  <div>時給1,580円〜</div>
+                  <div>月給300.000円〜+歩合+各種手当て/毎月達成賞与有り</div>
+                  <div>月給600.000円〜1,200,000円｜時給1.300円〜</div>
+                  <div>時給1.300円〜</div>
                 </div>
 
               </div>
@@ -318,9 +318,9 @@ export default function CastRecruit() {
                   <div className="py-2">オフィシャルサイト</div>
                 </div>
                 <div className="bg-white p-4 text-gray-800">
-                  <div className="py-2">月曜日〜土曜日</div>
-                  <div className="py-2">19:30～LAST</div>
-                  <div className="py-2">日曜日</div>
+                  <div className="py-2">火曜日〜日曜日</div>
+                  <div className="py-2">17:50〜LAST</div>
+                  <div className="py-2">月曜日</div>
                   <div className="py-2">
                     <a href="https://line.me/R/ti/p/@084rmhdk?oat_content=url&ts=01232147" className="text-blue-600 hover:underline">LINE友達追加はこちら</a><br />
                   </div>
