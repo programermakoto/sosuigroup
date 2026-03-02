@@ -18,7 +18,7 @@ export default function HamburgerMenu() {
     {
       name: "CLUB gloria",
       image: "/assets/store01.webp",
-      siteUrl: "https://www.pokepara.jp/nara/m335/a391/shop6973/",
+      siteUrl: "/gloria",
       recruitUrl: "https://www.tainew.com/kansai/shop/view/v502354/",
     },
     {
